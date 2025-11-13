@@ -2,7 +2,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 
 export const metadata = {
-    title: 'FitPro',
+    title: 'REPZ',
     description: 'Fitness website',
 };
 
