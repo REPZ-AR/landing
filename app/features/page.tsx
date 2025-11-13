@@ -1,17 +1,108 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Dumbbell, Heart, Users, User, Cpu } from "lucide-react";
+import {
+    Search, Dumbbell, Heart, Users, User, Cpu,
+    Sprout,
+    Clock,
+    BarChart,
+    CheckCircle
+} from "lucide-react";
+import ServiceCards from "@/components/ServiceCards";
+import type { ServiceCardData } from "@/components/ServiceCards";
+
+// 3. This is the new "config" for your service cards
+const serviceCardsData: ServiceCardData[] = [
+    {
+        id: 1,
+        title: "Strength Training",
+        description: "Build muscle and increase power with comprehensive strength training.",
+        image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1470",
+        price: "From $35",
+        icon: <Dumbbell size={24} />,
+        category: "Strength", // Matches the filter label
+        details: [
+            { icon: <Clock size={16} />, text: "45-60 minutes" },
+            { icon: <BarChart size={16} />, text: "Beginner to Advanced" },
+            { icon: <CheckCircle size={16} />, text: "Free weights & barbells" },
+            { icon: <CheckCircle size={16} />, text: "Resistance machines" },
+        ]
+    },
+    {
+        id: 2,
+        title: "Cardio Fitness",
+        description: "Improve cardiovascular health and endurance with varied workouts.",
+        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1470",
+        price: "From $25",
+        icon: <Heart size={24} />,
+        category: "Cardio", // Matches the filter label
+        details: [
+            { icon: <Clock size={16} />, text: "30-45 minutes" },
+            { icon: <BarChart size={16} />, text: "All Levels" },
+            { icon: <CheckCircle size={16} />, text: "HIIT training sessions" },
+            { icon: <CheckCircle size={16} />, text: "Treadmills & ellipticals" },
+        ]
+    },
+    {
+        id: 3,
+        title: "Group Fitness Classes",
+        description: "Join energetic group sessions for motivation and community.",
+        image: "https://images.unsplash.com/photo-1571902943202-50aec6386092?auto=format&fit=crop&w=1470",
+        price: "From $20",
+        icon: <Users size={24} />,
+        category: "Group Classes", // Matches the filter label
+        details: [
+            { icon: <Clock size={16} />, text: "45-60 minutes" },
+            { icon: <BarChart size={16} />, text: "All Levels" },
+            { icon: <CheckCircle size={16} />, text: "Yoga and pilates classes" },
+            { icon: <CheckCircle size={16} />, text: "Zumba and dance fitness" },
+        ]
+    },
+    {
+        id: 4,
+        title: "Personal Training",
+        description: "Get one-on-one guidance tailored to your specific fitness goals.",
+        image: "https://images.unsplash.com/photo-1594737637105-3EB4e9c4A57a?auto=format&fit=crop&w=1470",
+        price: "From $50",
+        icon: <User size={24} />,
+        category: "Personal", // Matches the filter label
+        details: [
+            { icon: <Clock size={16} />, text: "60 minutes" },
+            { icon: <BarChart size={16} />, text: "Customized" },
+            { icon: <CheckCircle size={16} />, text: "Goal-specific plans" },
+            { icon: <CheckCircle size={16} />, text: "Nutrition advice" },
+        ]
+    },
+    {
+        id: 5,
+        title: "Wellness & Recovery",
+        description: "Focus on recovery, flexibility, and mental well-being.",
+        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1520",
+        price: "From $30",
+        icon: <Sprout size={24} />,
+        category: "Wellness", // Matches the filter label
+        details: [
+            { icon: <Clock size={16} />, text: "30-60 minutes" },
+            { icon: <BarChart size={16} />, text: "All Levels" },
+            { icon: <CheckCircle size={16} />, text: "Meditation & Mindfulness" },
+            { icon: <CheckCircle size={16} />, text: "Stretching & Foam Rolling" },
+        ]
+    },
+];
+
 
 export default function FeaturesPage() {
-    const [activeFilter, setActiveFilter] = useState("All Features");
+    // 2. Updated initial state to match the filter list
+    const [activeFilter, setActiveFilter] = useState("All Services");
 
+    // 2. Updated filters list
     const filters = [
-        { label: "All Features", icon: <Search size={16} /> },
+        { label: "All Services", icon: <Search size={16} /> },
         { label: "Strength", icon: <Dumbbell size={16} /> },
         { label: "Cardio", icon: <Heart size={16} /> },
         { label: "Group Classes", icon: <Users size={16} /> },
         { label: "Personal", icon: <User size={16} /> },
+        { label: "Wellness", icon: <Sprout size={16} /> }, // Added Wellness
     ];
 
     const cards = [
@@ -25,7 +116,7 @@ export default function FeaturesPage() {
             description:
                 "Our design is built to be fun and easy to use, making your journey smooth and enjoyable.",
             image:
-                "https://cdn-icons-png.flaticon.com/512/4712/4712026.png", // You can replace this with your own cute mascot image
+                "https://cdn-icons-png.flaticon.com/512/4712/4712026.png",
         },
         {
             title: "Based on Research",
@@ -42,11 +133,9 @@ export default function FeaturesPage() {
                 <button className="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition">
                     ⚡ Complete Feature Catalog
                 </button>
-
                 <h1 className="text-5xl font-extrabold mt-6 leading-tight">
                     Our <span className="block">Features</span>
                 </h1>
-
                 <p className="mt-4 text-gray-500 text-lg leading-relaxed">
                     Discover comprehensive fitness programs designed by experts to help you
                     achieve your goals. From personal training to group classes, we have
@@ -54,7 +143,7 @@ export default function FeaturesPage() {
                 </p>
             </div>
 
-            {/* 🌟 Feature cards section */}
+            {/* Feature cards section*/}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 w-full max-w-6xl">
                 {cards.map((card, index) => (
                     <div
@@ -77,7 +166,6 @@ export default function FeaturesPage() {
 
             {/* Search + Filter section */}
             <div className="w-full max-w-6xl flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4">
-                {/* 🔍 Search bar */}
                 <div className="w-full md:w-1/3">
                     <input
                         type="text"
@@ -85,8 +173,6 @@ export default function FeaturesPage() {
                         className="w-full bg-gray-100 border-none rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300"
                     />
                 </div>
-
-                {/* Filter buttons */}
                 <div className="flex flex-wrap justify-start md:justify-end gap-3 w-full md:w-2/3">
                     {filters.map((filter) => (
                         <button
@@ -104,6 +190,9 @@ export default function FeaturesPage() {
                     ))}
                 </div>
             </div>
+
+            <ServiceCards filter={activeFilter} cards={serviceCardsData} />
+
         </main>
     );
 }

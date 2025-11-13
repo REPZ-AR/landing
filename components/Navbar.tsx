@@ -16,7 +16,7 @@ const Navbar = () => {
                     {/* Logo */}
                     <div className="flex items-center space-x-2">
                         <span className="text-2xl">🏋️‍♂️</span>
-                        <span className="font-bold text-lg">FitPro</span>
+                        <span className="font-bold text-lg text-black">REPZ</span>
                     </div>
 
                     {/* Menu (Desktop) */}
