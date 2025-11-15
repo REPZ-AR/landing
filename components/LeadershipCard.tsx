@@ -28,18 +28,18 @@ export default function LeaderCard({
                 bg-white
                 rounded-3xl
                 shadow-lg
-                p-8
+                p-6 sm:p-8
                 border border-gray-100
                 hover:shadow-xl
                 transition-all
-                flex flex-col gap-6
+                flex flex-col gap-4 sm:gap-6
                 max-w-4xl w-full
             "
         >
-            {/* TOP SECTION: IMAGE + NAME + ROLE */}
-            <div className="flex items-start gap-6">
+            {/* TOP SECTION */}
+            <div className="flex items-start gap-4 sm:gap-6">
                 {/* Profile Image */}
-                <div className="w-28 h-28 rounded-2xl overflow-hidden shadow-md flex-shrink-0">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-md flex-shrink-0">
                     <Image
                         src={image}
                         alt={name}
@@ -51,34 +51,31 @@ export default function LeaderCard({
 
                 {/* Name + Role */}
                 <div>
-                    <h3 className="text-3xl font-bold text-gray-900 leading-tight">
+                    <h3 className="text-xl sm:text-3xl font-bold text-gray-900 leading-tight">
                         {name}
                     </h3>
-                    <p className="text-gray-600 font-medium text-lg mt-1">
+                    <p className="text-sm sm:text-lg text-gray-600 font-medium mt-1">
                         {role}
                     </p>
                 </div>
             </div>
 
             {/* BIO */}
-            <p className="text-gray-700 leading-relaxed text-[17px] max-w-3xl">
+            <p className="text-[15px] sm:text-[17px] text-gray-700 leading-relaxed max-w-3xl">
                 {bio}
             </p>
 
             {/* SKILLS */}
-            <div className="
-                flex flex-wrap gap-3
-                mt-2
-            ">
+            <div className="flex flex-wrap gap-2 sm:gap-3 mt-2">
                 {skills.map((skill, i) => (
                     <span
                         key={i}
                         className="
-                            px-5 py-2
+                            px-3 py-1.5 sm:px-5 sm:py-2
                             bg-gray-100
                             text-gray-700
                             rounded-full
-                            text-sm font-medium
+                            text-xs sm:text-sm font-medium
                             border shadow-sm
                         "
                     >
