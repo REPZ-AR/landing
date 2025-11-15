@@ -25,7 +25,7 @@ export default function LeaderCard({
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             className="
-                bg-white
+                bg-gradient-to-r from-white to-blue-50
                 rounded-3xl
                 shadow-lg
                 p-6 sm:p-8
