@@ -2,6 +2,7 @@ import Image from "next/image";
 import Tabs from "@/components/Tabs";
 import Timeline from "@/components/Timeline";
 import LeadershipCard from "@/components/LeadershipCard";
+import CoreValues from "@/components/CoreValues";
 
 export default function AboutPage() {
     return (
@@ -82,16 +83,7 @@ export default function AboutPage() {
                     },
                     {
                         label: "Values",
-                        content: (
-                            <div>
-                                <h2 className="text-2xl font-semibold mb-4">Our Core Values</h2>
-                                <ul className="text-gray-700 space-y-2">
-                                    <li>• Excellence</li>
-                                    <li>• Community</li>
-                                    <li>• Innovation</li>
-                                </ul>
-                            </div>
-                        ),
+                        content: <CoreValues />,
                     },
                     {
                         label: "Facilities",
