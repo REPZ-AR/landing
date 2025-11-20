@@ -17,27 +17,31 @@ export default function FeatureSlide({
                                      }: FeatureSlideProps) {
     return (
         <section
-            className={`flex flex-col md:flex-row items-center justify-between max-w-6xl w-full mx-auto mb-24 p-6 md:p-10 rounded-3xl ${
-                reverse ? "md:flex-row-reverse bg-gradient-to-r from-blue-50 to-white" : "bg-gradient-to-r from-white to-blue-50"
+            className={`flex flex-col items-center justify-between max-w-6xl w-full mx-auto rounded-3xl ${
+                reverse ? "flex-col-reverse bg-gradient-to-r from-blue-50 to-white" : "bg-gradient-to-r from-white to-blue-50"
             } shadow-sm`}
         >
             {/* Text Section */}
-            <div className="md:w-1/2 px-4 md:px-8 text-left md:text-left">
-                <p className="text-sm text-blue-600 font-semibold uppercase tracking-wide mb-2">
+            <div className="md:w-3/4 px-4 md:px-4 text-center mt-5 md:mt-20 md:mb-20">
+                <p className="text-sm text-blue-600 font-bold md:font-extrabold uppercase tracking-wide mb-2">
                     {subtitle}
                 </p>
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-4 leading-snug">
+                <h4 className={`text-l md:text-4xl font-semibold leading-snug`}>
                     {title}
-                </h2>
-                <p className="text-gray-600 leading-relaxed text-base">{description}</p>
+                </h4>
+                <p className="text-sm md:text-xl text-gray-600 leading-relaxed mt-4 mb-4">{description}</p>
             </div>
 
             {/* Image Section */}
-            <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
+            <div
+                className={`md:w-2/3 flex justify-center`}
+            >
                 <img
                     src={image}
                     alt={title}
-                    className="w-[280px] md:w-[380px] lg:w-[420px] rounded-2xl shadow-lg border border-gray-100"
+                    className={`${reverse
+                        ? "rounded-t-2xl md:rounded-b-2xl md:rounded-t-none"
+                        : "rounded-b-2xl md:rounded-t-2xl md:rounded-b-none"} shadow-lg border border-gray-100`}
                 />
             </div>
         </section>
