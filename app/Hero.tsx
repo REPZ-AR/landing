@@ -24,7 +24,7 @@ export default function FitnessHero() {
             <div className="flex flex-col max-w-xl space-y-6">
 
                 {/* Heading with gradient text */}
-                <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-transparent bg-clip-text">
+                <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-transparent bg-clip-text py-1">
                     Transform <br /> Your <br />
                     <span className="font-extrabold">Body & Mind</span>
                 </h1>
