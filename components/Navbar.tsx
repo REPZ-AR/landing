@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Sun, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from "next/image";
 
 interface NavLink {
     name: string;
@@ -123,8 +124,12 @@ const Navbar: React.FC = () => {
 
                     {/* Logo */}
                     <div className="flex items-center space-x-2">
-                        <span className="text-2xl">🏋️‍♂️</span>
-                        <span className="font-bold text-lg text-black">REPZ</span>
+                        <Image
+                            src="/images/repz-high-resolution-logo-transparent.png"
+                            alt="Repz Logo"
+                            height={32}
+                            width={122}
+                        />
                     </div>
 
                     {/* Menu (Desktop - PillNavigation) */}

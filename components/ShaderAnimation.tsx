@@ -3,7 +3,11 @@
 import { useEffect, useRef } from "react"
 import * as THREE from "three"
 
-export function ShaderAnimation() {
+interface ShaderAnimationProps {
+    mode?: "light" | "dark"
+}
+
+export function ShaderAnimation({ mode = "dark" }: ShaderAnimationProps) {
     const containerRef = useRef<HTMLDivElement>(null)
     const sceneRef = useRef<{
         camera: THREE.Camera
@@ -25,7 +29,7 @@ export function ShaderAnimation() {
       }
     `
 
-        // Fragment shader
+        // Fragment shader with mode support
         const fragmentShader = `
       #define TWO_PI 6.2831853072
       #define PI 3.14159265359
@@ -33,20 +37,41 @@ export function ShaderAnimation() {
       precision highp float;
       uniform vec2 resolution;
       uniform float time;
+      uniform float isDark;
 
       void main(void) {
         vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
         float t = time*0.05;
         float lineWidth = 0.002;
 
-        vec3 color = vec3(0.0);
-        for(int j = 0; j < 3; j++){
-          for(int i=0; i < 5; i++){
-            color[j] += lineWidth*float(i*i) / abs(fract(t - 0.01*float(j)+float(i)*0.01)*5.0 - length(uv) + mod(uv.x+uv.y, 0.2));
-          }
+        float intensity = 0.0;
+        for(int i=0; i < 5; i++){
+          intensity += lineWidth*float(i*i) / abs(fract(t + float(i)*0.01)*5.0 - length(uv) + mod(uv.x+uv.y, 0.2));
         }
         
-        gl_FragColor = vec4(color[0],color[1],color[2],1.0);
+        vec3 color;
+        
+        if(isDark > 0.5) {
+          // Dark mode: Green hues (#CFF500)
+          // #CFF500 = RGB(207, 245, 0) = normalized (0.812, 0.961, 0.0)
+          color = vec3(
+            intensity * 0.812,    // Red
+            intensity * 0.961,    // Green
+            intensity * 0.0       // Blue
+          );
+        } else {
+          // Light mode: Purple hues (#A66CFF)
+          // #A66CFF = RGB(166, 108, 255) = normalized (0.651, 0.424, 1.0)
+          vec3 purpleColor = vec3(
+            intensity * 0.651,    // Red
+            intensity * 0.424,    // Green
+            intensity * 1.0       // Blue
+          );
+          // Mix with very light background
+          color = mix(vec3(0.99, 0.99, 1.0), purpleColor, 0.7);
+        }
+        
+        gl_FragColor = vec4(color, 1.0);
       }
     `
 
@@ -60,6 +85,7 @@ export function ShaderAnimation() {
         const uniforms = {
             time: { type: "f", value: 1.0 },
             resolution: { type: "v2", value: new THREE.Vector2() },
+            isDark: { type: "f", value: mode === "dark" ? 1.0 : 0.0 },
         }
 
         const material = new THREE.ShaderMaterial({
@@ -128,14 +154,14 @@ export function ShaderAnimation() {
                 material.dispose()
             }
         }
-    }, [])
+    }, [mode])
 
     return (
         <div
             ref={containerRef}
             className="w-full h-screen"
             style={{
-                background: "#000",
+                background: mode === "dark" ? "#000" : "#fff",
                 overflow: "hidden",
             }}
         />

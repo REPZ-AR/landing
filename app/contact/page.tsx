@@ -340,11 +340,6 @@ export default function ContactPage() {
                                 </p>
                             </div>
                         </div>
-
-                        <p className="mt-4 text-center text-xs text-white/50">
-                            Background image credit: Freepik (if you’re using a Freepik asset
-                            in your project).
-                        </p>
                     </motion.aside>
                 </div>
             </div>
