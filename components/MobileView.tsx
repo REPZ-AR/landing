@@ -57,42 +57,42 @@ const fallbackImages = [
 const TEXT_BLOCKS: TextBlock[] = [
     {
         id: "splash",
-        eyebrow: "Placeholder Copy",
-        title: "Placeholder Splash",
-        body: "Introduce the concept with a short line of copy that feels like a launch moment.",
-        className: "hidden md:block absolute left-1/2 bottom-12 -translate-x-1/2 text-center max-w-xl",
+        eyebrow: "Welcome",
+        title: "Your AR Fitness Journey Starts Here",
+        body: "Experience the future of personalized training with augmented reality guidance.",
+        className: "hidden md:block absolute left-1/2 bottom-20 -translate-x-1/2 text-center max-w-xl",
         range: STAGE_RANGES[0],
     },
     {
         id: "left-feature",
-        eyebrow: "Placeholder Copy",
-        title: "Left Aligned Placeholder",
-        body: "Describe a feature while the phone glides to the right. Keep it brief and scannable.",
-        className: "hidden md:block absolute left-10 md:left-20 top-1/3 max-w-sm text-left",
+        eyebrow: "Smart Training",
+        title: "Build Custom Workouts",
+        body: "Create personalized routines tailored to your fitness goals with AI-powered recommendations.",
+        className: "hidden md:block absolute left-4 md:left-12 top-1/4 max-w-[280px] text-left",
         range: STAGE_RANGES[1],
     },
     {
         id: "right-feature",
-        eyebrow: "Placeholder Copy",
-        title: "Right Aligned Placeholder",
-        body: "Mirror the treatment with copy anchored to the right edge, giving focus to another detail.",
-        className: "hidden md:block absolute right-10 md:right-20 top-1/3 max-w-sm text-right",
+        eyebrow: "Track Progress",
+        title: "Real-Time Performance Analytics",
+        body: "Monitor your gains with detailed metrics, insights, and progress tracking across all your workouts.",
+        className: "hidden md:block absolute right-4 md:right-12 top-1/4 max-w-[280px] text-right",
         range: STAGE_RANGES[2],
     },
     {
         id: "final-top",
-        eyebrow: "Placeholder Copy",
-        title: "Surround Title",
-        body: "Placeholders can live above the phone, hinting at supporting context.",
-        className: "hidden md:block absolute left-14 md:left-28 top-12 max-w-xs text-left",
+        eyebrow: "Stay Motivated",
+        title: "Join Daily Challenges",
+        body: "Compete with friends and the community in exciting fitness challenges.",
+        className: "hidden md:block absolute left-4 md:left-12 top-16 max-w-[260px] text-left",
         range: STAGE_RANGES[3],
     },
     {
         id: "final-bottom",
-        eyebrow: "Placeholder Copy",
-        title: "Supporting Placeholder",
-        body: "Add another short line near the bottom to complete the wraparound treatment.",
-        className: "hidden md:block absolute right-12 md:right-28 bottom-12 max-w-xs text-right",
+        eyebrow: "Achieve More",
+        title: "Reach Your Peak Performance",
+        body: "Transform your fitness journey with AR-powered guidance and community support.",
+        className: "hidden md:block absolute right-4 md:right-12 bottom-20 max-w-[260px] text-right",
         range: STAGE_RANGES[3],
     },
 ];
@@ -100,27 +100,27 @@ const TEXT_BLOCKS: TextBlock[] = [
 const CAPTION_CONTENT: CaptionBlock[] = [
     {
         id: "splash",
-        eyebrow: "Placeholder Copy",
-        title: "Splash Screen Concept",
-        body: "Lead with a hero moment before any motion happens.",
+        eyebrow: "Welcome",
+        title: "AR Workout Platform",
+        body: "Your personal AI-powered fitness companion powered by augmented reality.",
     },
     {
         id: "left-feature",
-        eyebrow: "Feature Caption",
-        title: "Rightward Motion",
-        body: "Phone slides to the right while this caption anchors the story.",
+        eyebrow: "Smart Training",
+        title: "Custom Workout Builder",
+        body: "Design workouts that adapt to your fitness level and goals in real-time.",
     },
     {
         id: "right-feature",
-        eyebrow: "Feature Caption",
-        title: "Leftward Motion",
-        body: "Mirror the interaction with a caption synced to the new screen.",
+        eyebrow: "Track Progress",
+        title: "Performance Analytics",
+        body: "Visualize your journey with comprehensive stats and achievement tracking.",
     },
     {
         id: "final-stage",
-        eyebrow: "Placeholder Copy",
-        title: "Centered Finale",
-        body: "Wrap up with balanced content and a final supporting note.",
+        eyebrow: "Community",
+        title: "Challenges & Goals",
+        body: "Push your limits with daily challenges and compete with the community.",
     },
 ];
 
@@ -288,7 +288,7 @@ const ScrollControlledSlideshow = ({images: _images, height = "100vh"}: Slidesho
     };
 
     return (
-        <section ref={containerRef} className="relative w-full bg-gradient-to-b from-[#f2f7ff] via-white to-white"
+        <section ref={containerRef} className="relative w-full bg-gradient-hero dark:bg-gradient-to-b dark:from-[hsl(222,47%,11%)] dark:via-[hsl(222,47%,13%)] dark:to-[hsl(222,47%,15%)]"
                  style={{minHeight: trackHeight}}>
             <div className="sticky top-0 md:top-16 flex items-center justify-center" style={{height: normalizedHeight}}>
                 <div className="relative flex h-full w-full max-w-6xl items-center justify-center px-4 py-12 md:px-8">
@@ -300,9 +300,9 @@ const ScrollControlledSlideshow = ({images: _images, height = "100vh"}: Slidesho
                                 style={{opacity}}
                                 className={`${block.className} text-balance`}
                             >
-                                <p className="text-sm uppercase tracking-[0.4em] text-slate-400">{block.eyebrow}</p>
-                                <h3 className="text-3xl font-semibold text-slate-900">{block.title}</h3>
-                                <p className="mt-3 text-base text-slate-500">{block.body}</p>
+                                <p className="text-sm uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500">{block.eyebrow}</p>
+                                <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">{block.title}</h3>
+                                <p className="mt-3 text-base text-slate-600 dark:text-slate-400">{block.body}</p>
                             </motion.div>
                         );
                     })}
@@ -315,22 +315,22 @@ const ScrollControlledSlideshow = ({images: _images, height = "100vh"}: Slidesho
                                 animate={{opacity: 1, y: 0}}
                                 exit={{opacity: 0, y: -14}}
                                 transition={{duration: 0.4, ease: "easeOut"}}
-                                className="mx-auto w-full max-w-md rounded-3xl bg-white/90 p-4 text-center text-slate-900 shadow-xl backdrop-blur"
+                                className="mx-auto w-full max-w-md rounded-3xl bg-white/90 dark:bg-[hsl(222,47%,15%)]/90 p-4 text-center text-slate-900 dark:text-white shadow-xl backdrop-blur border border-slate-200 dark:border-slate-700"
                             >
-                                <p className="text-xs uppercase tracking-[0.4em] text-slate-400">{mobileCaption.eyebrow}</p>
+                                <p className="text-xs uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500">{mobileCaption.eyebrow}</p>
                                 <h3 className="mt-2 text-2xl font-semibold">{mobileCaption.title}</h3>
-                                <p className="mt-2 text-base text-slate-500">{mobileCaption.body}</p>
+                                <p className="mt-2 text-base text-slate-600 dark:text-slate-400">{mobileCaption.body}</p>
                             </motion.div>
                         </AnimatePresence>
                     </div>
 
                     <motion.div
-                        className="relative h-[480px] w-[240px] rounded-[48px] border-8 border-slate-200 bg-slate-900 shadow-[0_30px_120px_rgba(15,23,42,0.25)] md:mt-16 md:h-[655px] md:w-[320px]"
+                        className="relative h-[480px] w-[240px] rounded-[48px] border-8 border-slate-200 dark:border-slate-700 bg-slate-900 dark:bg-slate-800 shadow-[0_30px_120px_rgba(15,23,42,0.25)] dark:shadow-[0_30px_120px_rgba(0,0,0,0.5)] md:mt-16 md:h-[655px] md:w-[320px]"
                         style={{translateX: phoneTranslateX, rotate: phoneRotate, scale: phoneScale}}
                     >
                         <div
-                            className="absolute left-1/2 top-0 md:h-8 md:w-40 h-7 w-28 -translate-x-1/2 rounded-b-[32px] bg-slate-900 z-10"/>
-                        <div className="absolute inset-2 rounded-[32px] bg-slate-900 overflow-hidden">
+                            className="absolute left-1/2 top-0 md:h-8 md:w-40 h-7 w-28 -translate-x-1/2 rounded-b-[32px] bg-slate-900 dark:bg-slate-800 z-10"/>
+                        <div className="absolute inset-2 rounded-[32px] bg-slate-900 dark:bg-slate-800 overflow-hidden">
                             <div className={"rounded-[32px] overflow-hidden h-full"}>
                                 {renderPhoneScreen()}
                             </div>
