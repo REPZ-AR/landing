@@ -20,47 +20,41 @@ export default function LeadershipCard({
                                        }: LeaderCardProps) {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
             className="
-                bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-700
-                rounded-3xl
-                shadow-lg
-                p-6 sm:p-8
-                border border-gray-100
-                hover:shadow-xl
-                transition-all
-                flex flex-col gap-5
-            "
+        bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-700
+        rounded-3xl
+        shadow-lg
+        p-6 sm:p-8
+        border border-gray-100
+        hover:shadow-xl
+        transition-all
+        flex flex-col gap-5
+      "
+            whileHover={{ scale: 1.03 }}
         >
             {/* Header */}
             <div className="flex items-center gap-5">
-                <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-md">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-md bg-gray-700 flex items-center justify-center">
                     <Image
                         src={image}
                         alt={name}
                         width={200}
                         height={200}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                            (e.target as HTMLImageElement).src = "/images/placeholder.jpg";
+                        }}
                     />
                 </div>
 
                 <div>
-                    <h3 className="text-2xl font-bold text-white">
-                        {name}
-                    </h3>
-                    <p className="text-gray-300 font-medium">
-                        {role}
-                    </p>
+                    <h3 className="text-2xl font-bold text-white">{name}</h3>
+                    <p className="text-gray-300 font-medium">{role}</p>
                 </div>
             </div>
 
             {/* Bio */}
-            <p className="text-gray-500 leading-relaxed">
-                {bio}
-            </p>
+            <p className="text-gray-500 leading-relaxed">{bio}</p>
 
             {/* Skills */}
             <div className="flex flex-wrap gap-2">
@@ -68,17 +62,17 @@ export default function LeadershipCard({
                     <span
                         key={i}
                         className="
-                            px-4 py-2
-                            bg-gray-400/20
-                            text-white
-                            rounded-full
-                            text-sm
-                            font-medium
-                            border
-                        "
+              px-4 py-2
+              bg-gray-400/20
+              text-white
+              rounded-full
+              text-sm
+              font-medium
+              border
+            "
                     >
-                        {skill}
-                    </span>
+            {skill}
+          </span>
                 ))}
             </div>
         </motion.div>

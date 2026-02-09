@@ -1,7 +1,9 @@
+"use client";
+
 import AboutHeroSection from "@/components/AboutHero";
 import Timeline from "@/components/Timeline";
 import CoreValues from "@/components/CoreValues";
-import LeadershipCard from "@/components/LeadershipCard";
+import LeadershipGrid from "@/components/LeadershipGrid"; // Use the animated grid
 
 export default function AboutPage() {
     const leaders = [
@@ -71,7 +73,6 @@ export default function AboutPage() {
 
             {/* Values + Leadership */}
             <div className="max-w-5xl mx-auto px-4 space-y-32 pb-32">
-
                 <CoreValues />
 
                 <section>
@@ -79,14 +80,8 @@ export default function AboutPage() {
                         Leadership Team
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {leaders.map((leader, index) => (
-                            <LeadershipCard
-                                key={index}
-                                {...leader}
-                            />
-                        ))}
-                    </div>
+                    {/* Animated Leadership Grid */}
+                    <LeadershipGrid leaders={leaders} />
                 </section>
             </div>
         </>
