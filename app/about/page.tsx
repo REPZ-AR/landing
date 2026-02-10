@@ -76,9 +76,6 @@ export default function AboutPage() {
                 <CoreValues />
 
                 <section>
-                    <h2 className="text-4xl font-bold text-center mb-12">
-                        Leadership Team
-                    </h2>
 
                     {/* Animated Leadership Grid */}
                     <LeadershipGrid leaders={leaders} />

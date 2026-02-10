@@ -60,7 +60,7 @@ export default function CoreValues() {
     return (
         <section className="w-full max-w-6xl mx-auto py-6">
             <h2 className="text-3xl font-bold text-center mb-3">Our Core Values</h2>
-            <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
+            <p className="text-gray-500 text-center max-w-2xl mx-auto mb-12">
                 These principles guide everything we do and shape the culture of our community.
             </p>
 
@@ -81,7 +81,7 @@ export default function CoreValues() {
                         </div>
 
                         <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                        <p className="dark:text-gray-400 leading-relaxed">{value.description}</p>
                     </motion.div>
                 ))}
             </div>
