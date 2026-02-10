@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export interface LeaderCardProps {
+interface LeaderCardProps {
     image: string;
     name: string;
     role: string;
@@ -12,63 +12,62 @@ export interface LeaderCardProps {
 }
 
 export default function LeadershipCard({
-                                           image,
-                                           name,
-                                           role,
-                                           bio,
-                                           skills,
-                                       }: LeaderCardProps) {
+                                       image,
+                                       name,
+                                       role,
+                                       bio,
+                                       skills,
+                                   }: LeaderCardProps) {
     return (
         <motion.div
             className="
-        bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-700
+        bg-white
+        dark:bg-gray-800
         rounded-3xl
         shadow-lg
         p-6 sm:p-8
-        border border-gray-100
-        hover:shadow-xl
-        transition-all
+        border border-gray-200 dark:border-gray-700
         flex flex-col gap-5
+        min-h-[380px]
       "
             whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.3 }}
         >
-            {/* Header */}
-            <div className="flex items-center gap-5">
-                <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-md bg-gray-700 flex items-center justify-center">
+            <div className="flex items-center gap-4">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden">
                     <Image
                         src={image}
                         alt={name}
                         width={200}
                         height={200}
                         className="w-full h-full object-cover"
-                        onError={(e) => {
-                            (e.target as HTMLImageElement).src = "/images/placeholder.jpg";
-                        }}
                     />
                 </div>
 
                 <div>
-                    <h3 className="text-2xl font-bold text-white">{name}</h3>
-                    <p className="text-gray-300 font-medium">{role}</p>
+                    <h3 className="text-xl font-semibold">{name}</h3>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">{role}</p>
                 </div>
             </div>
 
-            {/* Bio */}
-            <p className="text-gray-500 leading-relaxed">{bio}</p>
+            <p className="text-gray-800dark:text-gray-400 text-sm leading-relaxed">
+                {bio}
+            </p>
 
-            {/* Skills */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 mt-auto">
                 {skills.map((skill, i) => (
                     <span
                         key={i}
                         className="
               px-4 py-2
-              bg-gray-400/20
-              text-white
+              bg-purple-300
+              dark:bg-gray-300/40
+              dark:text-gray-900
               rounded-full
               text-sm
               font-medium
-              border
+              border border-gray-400/95
+              backdrop-blur-sm
             "
                     >
             {skill}

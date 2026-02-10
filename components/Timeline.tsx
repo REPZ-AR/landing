@@ -47,13 +47,13 @@ export default function Timeline({ items }: TimelineProps) {
                                         : "md:text-left md:pl-16 md:order-2"
                                 }
                             >
-                                <span className="text-sm text-gray-500">
+                                <span className="text-sm text-gray-800 dark:text-gray-500">
                                     {item.year}
                                 </span>
                                 <h3 className="text-2xl font-semibold mt-2">
                                     {item.title}
                                 </h3>
-                                <p className="text-gray-600 mt-4 leading-relaxed">
+                                <p className="text-gray-950 dark:text-gray-400 mt-4 leading-relaxed">
                                     {item.description}
                                 </p>
                             </div>
