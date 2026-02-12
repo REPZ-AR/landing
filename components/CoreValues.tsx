@@ -60,7 +60,7 @@ export default function CoreValues() {
     return (
         <section className="w-full max-w-6xl mx-auto py-6">
             <h2 className="text-3xl font-bold text-center mb-3">Our Core Values</h2>
-            <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
+            <p className="text-gray-500 text-center max-w-2xl mx-auto mb-12">
                 These principles guide everything we do and shape the culture of our community.
             </p>
 
@@ -72,7 +72,7 @@ export default function CoreValues() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: i * 0.15 }}
                         viewport={{ once: true }}
-                        className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all min-h-[260px]"
+                        className="bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all min-h-[260px]"
                     >
                         <div
                             className={`w-16 h-16 ${value.bg} rounded-2xl flex items-center justify-center mb-6`}
@@ -81,7 +81,7 @@ export default function CoreValues() {
                         </div>
 
                         <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                        <p className="dark:text-gray-400 leading-relaxed">{value.description}</p>
                     </motion.div>
                 ))}
             </div>

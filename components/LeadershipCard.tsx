@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-interface LeaderCardProps {
+export interface LeaderCardProps {
     image: string;
     name: string;
     role: string;
@@ -11,7 +11,7 @@ interface LeaderCardProps {
     skills: string[];
 }
 
-export default function LeaderCard({
+export default function LeadershipCard({
                                        image,
                                        name,
                                        role,
@@ -20,26 +20,20 @@ export default function LeaderCard({
                                    }: LeaderCardProps) {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
             className="
-                bg-white
-                rounded-3xl
-                shadow-lg
-                p-6 sm:p-8
-                border border-gray-100
-                hover:shadow-xl
-                transition-all
-                flex flex-col gap-4 sm:gap-6
-                max-w-4xl w-full
-            "
+        bg-gradient-to-r from-blue-50 to-white dark:from-gray-800 dark:to-gray-700
+        rounded-3xl
+        shadow-lg
+        p-6 sm:p-8
+        border border-gray-200 dark:border-gray-700
+        flex flex-col gap-5
+        min-h-[380px]
+      "
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.3 }}
         >
-            {/* TOP SECTION */}
-            <div className="flex items-start gap-4 sm:gap-6">
-                {/* Profile Image */}
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-md flex-shrink-0">
+            <div className="flex items-center gap-4">
+                <div className="w-24 h-24 rounded-2xl overflow-hidden">
                     <Image
                         src={image}
                         alt={name}
@@ -49,38 +43,34 @@ export default function LeaderCard({
                     />
                 </div>
 
-                {/* Name + Role */}
                 <div>
-                    <h3 className="text-xl sm:text-3xl font-bold text-gray-900 leading-tight">
-                        {name}
-                    </h3>
-                    <p className="text-sm sm:text-lg text-gray-600 font-medium mt-1">
-                        {role}
-                    </p>
+                    <h3 className="text-xl font-semibold">{name}</h3>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">{role}</p>
                 </div>
             </div>
 
-            {/* BIO */}
-            <p className="text-[15px] sm:text-[17px] text-gray-700 leading-relaxed max-w-3xl">
+            <p className="text-gray-800dark:text-gray-400 text-sm leading-relaxed">
                 {bio}
             </p>
 
-            {/* SKILLS */}
-            <div className="flex flex-wrap gap-2 sm:gap-3 mt-2">
+            <div className="flex flex-wrap gap-2 mt-auto">
                 {skills.map((skill, i) => (
                     <span
                         key={i}
                         className="
-                            px-3 py-1.5 sm:px-5 sm:py-2
-                            bg-gray-100
-                            text-gray-700
-                            rounded-full
-                            text-xs sm:text-sm font-medium
-                            border shadow-sm
-                        "
+              px-4 py-2
+              bg-purple-300
+              dark:bg-gray-300/40
+              dark:text-gray-900
+              rounded-full
+              text-sm
+              font-medium
+              border border-gray-400/95
+              backdrop-blur-sm
+            "
                     >
-                        {skill}
-                    </span>
+            {skill}
+          </span>
                 ))}
             </div>
         </motion.div>
