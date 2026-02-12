@@ -70,7 +70,7 @@ const ServiceCards: React.FC<ServiceCardsProps> = ({ cards }) => {
                     <div
                         key={card.id}
                         // Card Container: Tall height + Dark background to frame screenshots nicely
-                        className="relative flex-shrink-0 w-[300px] h-[550px] md:w-[340px] md:h-[600px] snap-center rounded-[32px] overflow-hidden shadow-xl bg-gray-900 transition-transform duration-300 hover:scale-[1.02]"
+                        className="relative flex-shrink-0 w-[300px] h-[550px] md:w-[340px] md:h-[600px] snap-center rounded-[32px] overflow-hidden  transition-transform duration-300 hover:scale-[1.02]"
                     >
                         {/* 1. ACTUAL IMAGE TAG (Instead of background-image)
                            2. object-contain: Ensures full image is visible (no cropping)
@@ -102,7 +102,7 @@ const ServiceCards: React.FC<ServiceCardsProps> = ({ cards }) => {
 
                             {/* Description */}
                             <div className="opacity-90">
-                                <p className="text-gray-200 text-sm font-medium line-clamp-3 drop-shadow-sm">
+                                <p className="text-black-200 text-sm font-medium line-clamp-3 drop-shadow-sm">
                                     {card.description}
                                 </p>
                             </div>
