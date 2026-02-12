@@ -80,6 +80,36 @@ const serviceCardsData: ServiceCardData[] = [
             { icon: <CheckCircle size={16} />, text: "Nutrition advice" },
         ],
     },
+    {
+        id: 4,
+        title: "Engage with trainers",
+        description: "",
+        image: "/images/screens/coaches.png",
+        price: "",
+        icon: <Users size={24} />,
+        category: "",
+        details: [
+            { icon: <Clock size={16} />, text: "60 minutes" },
+            { icon: <BarChart size={16} />, text: "Customized" },
+            { icon: <CheckCircle size={16} />, text: "Goal-specific plans" },
+            { icon: <CheckCircle size={16} />, text: "Nutrition advice" },
+        ],
+    },
+    {
+        id: 4,
+        title: "Client management",
+        description: "",
+        image: "/images/screens/client.png",
+        price: "",
+        icon: <Users size={24} />,
+        category: "",
+        details: [
+            { icon: <Clock size={16} />, text: "60 minutes" },
+            { icon: <BarChart size={16} />, text: "Customized" },
+            { icon: <CheckCircle size={16} />, text: "Goal-specific plans" },
+            { icon: <CheckCircle size={16} />, text: "Nutrition advice" },
+        ],
+    },
 ];
 
 export default function FeaturesPage() {
