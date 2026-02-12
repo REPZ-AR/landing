@@ -16,12 +16,12 @@ import { motion } from "framer-motion";
 const serviceCardsData: ServiceCardData[] = [
     {
         id: 1,
-        title: "Strength Training",
-        description: "Build muscle and increase power with comprehensive strength training.",
-        image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1470",
-        price: "From $35",
+        title: "Welcome Screen",
+        description: "",
+        image: "/images/screens/SplashScreen.png",
+        price: "",
         icon: <Dumbbell size={24} />,
-        category: "Strength",
+        category: "",
         details: [
             { icon: <Clock size={16} />, text: "45-60 minutes" },
             { icon: <BarChart size={16} />, text: "Beginner to Advanced" },
@@ -31,12 +31,12 @@ const serviceCardsData: ServiceCardData[] = [
     },
     {
         id: 2,
-        title: "Cardio Fitness",
-        description: "Improve cardiovascular health and endurance with varied workouts.",
-        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1470",
-        price: "From $25",
+        title: "Workout Builder Page",
+        description: "",
+        image: "/images/screens/WorkoutBuilderScreen.png",
+        price: "",
         icon: <Heart size={24} />,
-        category: "Cardio",
+        category: "",
         details: [
             { icon: <Clock size={16} />, text: "30-45 minutes" },
             { icon: <BarChart size={16} />, text: "All Levels" },
@@ -46,12 +46,12 @@ const serviceCardsData: ServiceCardData[] = [
     },
     {
         id: 3,
-        title: "Group Fitness Classes",
-        description: "Join energetic group sessions for motivation and community.",
-        image: "https://images.unsplash.com/photo-1571902943202-50aec6386092?auto=format&fit=crop&w=1470",
-        price: "From $20",
-        icon: <Users size={24} />,
-        category: "Group Classes",
+        title: "Home Screen",
+        description: "",
+        image: "/images/screens/StatsScreen.png",
+        price: "",
+        icon: <User size={24} />,
+        category: "",
         details: [
             { icon: <Clock size={16} />, text: "45-60 minutes" },
             { icon: <BarChart size={16} />, text: "All Levels" },
@@ -61,34 +61,19 @@ const serviceCardsData: ServiceCardData[] = [
     },
     {
         id: 4,
-        title: "Personal Training",
-        description: "Get one-on-one guidance tailored to your specific fitness goals.",
-        image: "https://images.unsplash.com/photo-1594737637105-3EB4e9c4A57a?auto=format&fit=crop&w=1470",
-        price: "From $50",
-        icon: <User size={24} />,
-        category: "Personal",
+        title: "Community",
+        description: "",
+        image: "/images/screens/ChallengesScreen.png",
+        price: "",
+        icon: <Users size={24} />,
+        category: "",
         details: [
             { icon: <Clock size={16} />, text: "60 minutes" },
             { icon: <BarChart size={16} />, text: "Customized" },
             { icon: <CheckCircle size={16} />, text: "Goal-specific plans" },
             { icon: <CheckCircle size={16} />, text: "Nutrition advice" },
         ]
-    },
-    {
-        id: 5,
-        title: "Wellness & Recovery",
-        description: "Focus on recovery, flexibility, and mental well-being.",
-        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1520",
-        price: "From $30",
-        icon: <Sprout size={24} />,
-        category: "Wellness",
-        details: [
-            { icon: <Clock size={16} />, text: "30-60 minutes" },
-            { icon: <BarChart size={16} />, text: "All Levels" },
-            { icon: <CheckCircle size={16} />, text: "Meditation & Mindfulness" },
-            { icon: <CheckCircle size={16} />, text: "Stretching & Foam Rolling" },
-        ]
-    },
+    }
 ];
 
 
