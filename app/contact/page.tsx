@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, ChangeEvent, FormEvent } from "react";
+import React, { useMemo, useState, ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
 import {
     Phone,
@@ -96,12 +96,18 @@ export default function ContactPage() {
     };
 
     return (
-        <main className="min-h-screen bg-gradient-to-b from-[#0b0f17] via-[#0b0f17] to-[#070a10] text-white">
+        <main
+            className="
+        relative min-h-screen
+        bg-gradient-to-b from-gray-50 via-white to-gray-100 text-gray-900
+        dark:from-[#0b0f17] dark:via-[#0b0f17] dark:to-[#070a10] dark:text-white
+      "
+        >
             {/* Background accents */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -left-40 h-[420px] w-[420px] rounded-full bg-white/5 blur-3xl" />
-                <div className="absolute -bottom-40 -right-40 h-[520px] w-[520px] rounded-full bg-white/5 blur-3xl" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_45%)]" />
+                <div className="absolute -top-40 -left-40 h-[420px] w-[420px] rounded-full bg-black/5 blur-3xl dark:bg-white/5" />
+                <div className="absolute -bottom-40 -right-40 h-[520px] w-[520px] rounded-full bg-black/5 blur-3xl dark:bg-white/5" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.06),transparent_45%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_45%)]" />
             </div>
 
             <div className="relative mx-auto w-full max-w-6xl px-6 py-20">
@@ -112,16 +118,22 @@ export default function ContactPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.55, ease: "easeOut" }}
                 >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80">
+          <span
+              className="
+              inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm
+              border-gray-200 bg-white text-gray-700
+              dark:border-white/10 dark:bg-white/5 dark:text-white/80
+            "
+          >
             <Sparkles className="h-4 w-4" />
             Contact REPZ
           </span>
 
-                    <h1 className="mt-6 text-4xl font-extrabold tracking-tight md:text-5xl">
+                    <h1 className="mt-6 text-4xl font-extrabold tracking-tight md:text-5xl text-gray-900 dark:text-white">
                         Let’s help you train smarter.
                     </h1>
 
-                    <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
+                    <p className="mt-4 text-base leading-relaxed text-gray-600 dark:text-white/70 md:text-lg">
                         Questions about REPZ, partnerships, or support? Send us a message and
                         we’ll respond as soon as possible.
                     </p>
@@ -161,13 +173,27 @@ export default function ContactPage() {
                                 show: { opacity: 1, y: 0 },
                             }}
                             transition={{ duration: 0.45, ease: "easeOut" }}
-                            className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+                            className="
+                rounded-3xl border p-6
+                border-gray-200 bg-white shadow-sm
+                dark:border-white/10 dark:bg-white/5 dark:shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+              "
                         >
-                            <div className="mb-4 inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-3 text-white/90">
+                            <div
+                                className="
+                  mb-4 inline-flex items-center justify-center rounded-2xl border p-3
+                  border-gray-200 bg-gray-50 text-gray-700
+                  dark:border-white/10 dark:bg-white/5 dark:text-white/90
+                "
+                            >
                                 {c.icon}
                             </div>
-                            <h3 className="text-lg font-semibold">{c.title}</h3>
-                            <p className="mt-1 text-sm leading-relaxed text-white/70">
+
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                {c.title}
+                            </h3>
+
+                            <p className="mt-1 text-sm leading-relaxed text-gray-600 dark:text-white/70">
                                 {c.desc}
                             </p>
                         </motion.div>
@@ -184,9 +210,18 @@ export default function ContactPage() {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.55, ease: "easeOut" }}
                     >
-                        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.35)] md:p-8">
-                            <h2 className="text-xl font-bold md:text-2xl">Send a message</h2>
-                            <p className="mt-2 text-sm text-white/70">
+                        <div
+                            className="
+                rounded-3xl border p-6 md:p-8
+                border-gray-200 bg-white shadow-sm
+                dark:border-white/10 dark:bg-white/5 dark:shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+              "
+                        >
+                            <h2 className="text-xl font-bold md:text-2xl text-gray-900 dark:text-white">
+                                Send a message
+                            </h2>
+
+                            <p className="mt-2 text-sm text-gray-600 dark:text-white/70">
                                 We usually respond within 24 hours on business days.
                             </p>
 
@@ -200,6 +235,7 @@ export default function ContactPage() {
                                         onChange={handleChange}
                                         required
                                     />
+
                                     <Field
                                         label="Email"
                                         name="email"
@@ -212,17 +248,28 @@ export default function ContactPage() {
                                 </div>
 
                                 <div>
-                                    <label className="mb-2 block text-sm font-medium text-white/80">
+                                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-white/80">
                                         Subject
                                     </label>
+
                                     <select
                                         name="subject"
                                         value={formData.subject}
                                         onChange={handleChange}
-                                        className="w-full rounded-2xl border border-white/10 bg-[#0b0f17]/60 px-4 py-3 text-sm text-white outline-none transition focus:border-white/20 focus:ring-2 focus:ring-white/10"
+                                        className="
+                      w-full rounded-2xl border px-4 py-3 text-sm outline-none transition
+                      border-gray-200 bg-gray-50 text-gray-900
+                      focus:border-gray-300 focus:ring-2 focus:ring-gray-200
+                      dark:border-white/10 dark:bg-[#0b0f17]/60 dark:text-white
+                      dark:focus:border-white/20 dark:focus:ring-white/10
+                    "
                                     >
                                         {subjects.map((s) => (
-                                            <option key={s.value} value={s.value} className="bg-[#0b0f17]">
+                                            <option
+                                                key={s.value}
+                                                value={s.value}
+                                                className="bg-white text-gray-900 dark:bg-[#0b0f17] dark:text-white"
+                                            >
                                                 {s.label}
                                             </option>
                                         ))}
@@ -230,9 +277,10 @@ export default function ContactPage() {
                                 </div>
 
                                 <div>
-                                    <label className="mb-2 block text-sm font-medium text-white/80">
+                                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-white/80">
                                         Message
                                     </label>
+
                                     <textarea
                                         name="message"
                                         value={formData.message}
@@ -240,12 +288,18 @@ export default function ContactPage() {
                                         placeholder="Tell us what you need help with..."
                                         required
                                         rows={6}
-                                        className="w-full resize-none rounded-2xl border border-white/10 bg-[#0b0f17]/60 px-4 py-3 text-sm text-white outline-none transition focus:border-white/20 focus:ring-2 focus:ring-white/10"
+                                        className="
+                      w-full resize-none rounded-2xl border px-4 py-3 text-sm outline-none transition
+                      border-gray-200 bg-gray-50 text-gray-900 placeholder:text-gray-400
+                      focus:border-gray-300 focus:ring-2 focus:ring-gray-200
+                      dark:border-white/10 dark:bg-[#0b0f17]/60 dark:text-white dark:placeholder:text-white/40
+                      dark:focus:border-white/20 dark:focus:ring-white/10
+                    "
                                     />
                                 </div>
 
                                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                                    <p className="text-xs text-white/60">
+                                    <p className="text-xs text-gray-500 dark:text-white/60">
                                         By submitting, you agree we can contact you back regarding
                                         your request.
                                     </p>
@@ -253,7 +307,13 @@ export default function ContactPage() {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white px-5 py-3 text-sm font-semibold text-[#0b0f17] shadow-[0_12px_24px_rgba(0,0,0,0.35)] transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60"
+                                        className="
+                      inline-flex items-center justify-center gap-2 rounded-2xl border px-5 py-3 text-sm font-semibold transition
+                      border-gray-200 bg-gray-900 text-white hover:bg-gray-800
+                      disabled:cursor-not-allowed disabled:opacity-60
+                      dark:border-white/10 dark:bg-white dark:text-[#0b0f17] dark:hover:bg-white/90
+                      dark:shadow-[0_12px_24px_rgba(0,0,0,0.35)]
+                    "
                                     >
                                         {loading ? (
                                             <>
@@ -273,8 +333,8 @@ export default function ContactPage() {
                                     <div
                                         className={`mt-4 flex items-start gap-2 rounded-2xl border px-4 py-3 text-sm ${
                                             status.ok
-                                                ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-200"
-                                                : "border-red-400/30 bg-red-400/10 text-red-200"
+                                                ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-700 dark:text-emerald-200"
+                                                : "border-red-400/30 bg-red-400/10 text-red-700 dark:text-red-200"
                                         }`}
                                         role="status"
                                         aria-live="polite"
@@ -299,9 +359,18 @@ export default function ContactPage() {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
                     >
-                        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.35)] md:p-8">
-                            <h2 className="text-xl font-bold md:text-2xl">Contact details</h2>
-                            <p className="mt-2 text-sm text-white/70">
+                        <div
+                            className="
+                rounded-3xl border p-6 md:p-8
+                border-gray-200 bg-white shadow-sm
+                dark:border-white/10 dark:bg-white/5 dark:shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+              "
+                        >
+                            <h2 className="text-xl font-bold md:text-2xl text-gray-900 dark:text-white">
+                                Contact details
+                            </h2>
+
+                            <p className="mt-2 text-sm text-gray-600 dark:text-white/70">
                                 Prefer email or phone? Use the details below.
                             </p>
 
@@ -312,17 +381,20 @@ export default function ContactPage() {
                                     value="+94 75 340 5009"
                                     hint="Mon–Fri, 8:30am–5:30pm"
                                 />
+
                                 <InfoRow
                                     icon={<Mail className="h-5 w-5" />}
                                     title="Email"
                                     value="info@repz.lk"
                                     hint="We respond within 24 hours"
                                 />
+
                                 <InfoRow
                                     icon={<MapPin className="h-5 w-5" />}
                                     title="Location"
                                     value="Repz.lk, Bay 7, Trace Expert City, Maradana, Colombo 10"
                                 />
+
                                 <InfoRow
                                     icon={<Clock className="h-5 w-5" />}
                                     title="Business hours"
@@ -330,11 +402,12 @@ export default function ContactPage() {
                                 />
                             </div>
 
-                            <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4">
-                                <p className="text-sm font-semibold text-white/85">
+                            <div className="mt-8 rounded-2xl border border-gray-200 bg-gray-50 p-4 dark:border-white/10 dark:bg-white/5">
+                                <p className="text-sm font-semibold text-gray-900 dark:text-white/85">
                                     Tip for faster support
                                 </p>
-                                <p className="mt-1 text-sm text-white/70">
+
+                                <p className="mt-1 text-sm text-gray-600 dark:text-white/70">
                                     Include your device type, OS version, and what you were doing
                                     when the issue happened.
                                 </p>
@@ -366,9 +439,10 @@ function Field({
 }) {
     return (
         <div>
-            <label className="mb-2 block text-sm font-medium text-white/80">
+            <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-white/80">
                 {label}
             </label>
+
             <input
                 name={name}
                 type={type}
@@ -376,7 +450,13 @@ function Field({
                 onChange={onChange}
                 placeholder={placeholder}
                 required={required}
-                className="w-full rounded-2xl border border-white/10 bg-[#0b0f17]/60 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/40 focus:border-white/20 focus:ring-2 focus:ring-white/10"
+                className="
+          w-full rounded-2xl border px-4 py-3 text-sm outline-none transition
+          border-gray-200 bg-gray-50 text-gray-900 placeholder:text-gray-400
+          focus:border-gray-300 focus:ring-2 focus:ring-gray-200
+          dark:border-white/10 dark:bg-[#0b0f17]/60 dark:text-white dark:placeholder:text-white/40
+          dark:focus:border-white/20 dark:focus:ring-white/10
+        "
             />
         </div>
     );
@@ -394,16 +474,24 @@ function InfoRow({
     hint?: string;
 }) {
     return (
-        <div className="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
-            <div className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white/90">
+        <div className="flex gap-3 rounded-2xl border border-gray-200 bg-gray-50 p-4 dark:border-white/10 dark:bg-white/5">
+            <div className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-gray-200 bg-white text-gray-700 dark:border-white/10 dark:bg-white/5 dark:text-white/90">
                 {icon}
             </div>
+
             <div className="min-w-0">
-                <p className="text-sm font-semibold text-white/85">{title}</p>
-                <p className="mt-0.5 text-sm text-white/70">{value}</p>
-                {hint ? <p className="mt-1 text-xs text-white/50">{hint}</p> : null}
+                <p className="text-sm font-semibold text-gray-900 dark:text-white/85">
+                    {title}
+                </p>
+
+                <p className="mt-0.5 text-sm text-gray-600 dark:text-white/70">
+                    {value}
+                </p>
+
+                {hint ? (
+                    <p className="mt-1 text-xs text-gray-500 dark:text-white/50">{hint}</p>
+                ) : null}
             </div>
         </div>
     );
 }
-
