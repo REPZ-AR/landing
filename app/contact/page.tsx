@@ -385,7 +385,7 @@ export default function ContactPage() {
                                 <InfoRow
                                     icon={<Mail className="h-5 w-5" />}
                                     title="Email"
-                                    value="info@repz.lk"
+                                    value="repz-y04-05@iit.ac.lk"
                                     hint="We respond within 24 hours"
                                 />
 
