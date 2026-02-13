@@ -132,8 +132,8 @@ const Navbar: React.FC = () => {
                         {mounted && (
                             <Image
                                 src={resolvedTheme === 'dark'
-                                    ? "/images/repz-high-resolution-logo-transparent.png"
-                                    : "/images/repz-high-resolution-logo-transparent-light.png"}
+                                    ? "/images/repz-light.png"
+                                    : "/images/repz-dark.png"}
                                 alt="Repz Logo"
                                 height={32}
                                 width={122}
