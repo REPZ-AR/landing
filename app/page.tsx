@@ -124,7 +124,7 @@ export default function Home() {
                                 <motion.div
                                     whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
                                     transition={{ duration: 0.5 }}
-                                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 shadow-lg group-hover:shadow-primary/50 transition-shadow"
+                                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 dark:from-black dark:via-lime-300 dark:to-yellow-200 flex items-center justify-center mb-6 shadow-lg shadow-purple-500/30 dark:shadow-lime-300/40"
                                 >
                                     <Dumbbell className="text-white" size={32} />
                                 </motion.div>
@@ -148,7 +148,7 @@ export default function Home() {
                                 <motion.div
                                     whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
                                     transition={{ duration: 0.5 }}
-                                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 shadow-lg group-hover:shadow-primary/50 transition-shadow"
+                                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 dark:from-black dark:via-lime-300 dark:to-yellow-200 flex items-center justify-center mb-6 shadow-lg shadow-purple-500/30 dark:shadow-lime-300/40"
                                 >
                                     <Zap className="text-white" size={32} />
                                 </motion.div>
@@ -172,7 +172,7 @@ export default function Home() {
                                 <motion.div
                                     whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
                                     transition={{ duration: 0.5 }}
-                                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 shadow-lg group-hover:shadow-primary/50 transition-shadow"
+                                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 dark:from-black dark:via-lime-300 dark:to-yellow-200 flex items-center justify-center mb-6 shadow-lg shadow-purple-500/30 dark:shadow-lime-300/40"
                                 >
                                     <Users className="text-white" size={32} />
                                 </motion.div>
