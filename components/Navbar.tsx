@@ -130,10 +130,10 @@ const Navbar: React.FC = () => {
     return (
         <nav className="w-full fixed top-0 z-50 bg-transparent">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-20">
+                <div className="flex justify-center items-center h-20 relative">
 
-                    {/* Logo */}
-                    <div className="flex items-center space-x-2">
+                    {/* Logo - Positioned on the left */}
+                    <div className="absolute left-0 flex items-center space-x-2">
                         {mounted && (
                             <Image
                                 src={resolvedTheme === 'dark'
@@ -156,13 +156,13 @@ const Navbar: React.FC = () => {
                         )}
                     </div>
 
-                    {/* Menu (Desktop - PillNavigation) */}
-                    <div className="hidden md:flex flex-1 justify-center">
+                    {/* Menu (Desktop - PillNavigation) - Centered */}
+                    <div className="hidden md:flex">
                         <PillNavigation links={navLinks} />
                     </div>
 
-                    {/* Right Side Icons & Mobile Menu Button */}
-                    <div className="flex items-center space-x-4">
+                    {/* Right Side Icons & Mobile Menu Button - Positioned on the right */}
+                    <div className="absolute right-0 flex items-center space-x-4">
                         <button
                             onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                             className="p-2 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
