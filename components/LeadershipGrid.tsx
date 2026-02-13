@@ -68,7 +68,7 @@ export default function LeadershipGrid({ leaders }: LeadershipGridProps) {
                     ref={scrollRef}
                     onMouseEnter={() => { isPausedRef.current = true; }}
                     onMouseLeave={() => { isPausedRef.current = false; }}
-                    className="flex flex-row gap-10 overflow-x-auto flex-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-4"
+                    className="flex flex-row gap-10 overflow-x-auto flex-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-6 py-6"
                 >
                     {leaders.map((leader, index) => (
                         <motion.div
