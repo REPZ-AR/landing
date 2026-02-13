@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {ShaderAnimation} from "@/components/ShaderAnimation";
 
 export default function ARGymHero() {
   const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setIsVisible(true);
@@ -88,7 +90,9 @@ export default function ARGymHero() {
                 />
               </button>
 
-              <button className="px-8 py-3.5 bg-transparent border text-white/90 font-medium text-base rounded-full hover:bg-white/5 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+              <button
+                onClick={() => router.push("/contact")}
+                className="px-8 py-3.5 bg-transparent border text-white/90 font-medium text-base rounded-full hover:bg-white/5 backdrop-blur-sm transition-all duration-300 hover:scale-105"
                       style={{borderColor: "rgba(255, 255, 255, 0.2)"}}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.4)";
